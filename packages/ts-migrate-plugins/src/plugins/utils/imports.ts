@@ -4,7 +4,7 @@ import { SourceTextUpdate } from '../../utils/updateSourceText';
 import { getTextPreservingWhitespace } from './text';
 
 export type DefaultImport = { defaultImport: string; moduleSpecifier: string };
-export type NamedImport = { namedImport: string; moduleSpecifier: string, isTypeOnly?: boolean };
+export type NamedImport = { namedImport: string; moduleSpecifier: string; isTypeOnly?: boolean };
 export type ModuleImport = { moduleSpecifier: string };
 
 type AddImport = DefaultImport | NamedImport;
@@ -188,7 +188,7 @@ export function updateImports(
           importDeclaration.modifiers,
           importClause,
           importDeclaration.moduleSpecifier,
-          undefined
+          undefined,
         );
         const text = getTextPreservingWhitespace(importDeclaration, upImpDec, sourceFile);
         updates.push({
